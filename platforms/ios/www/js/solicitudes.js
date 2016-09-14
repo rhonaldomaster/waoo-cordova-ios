@@ -2,21 +2,29 @@
 function creasolicitud(){
 	var n = window.localStorage.getItem("nickname");
 	$("#nck").val(n);
-	var formData = new FormData( $("#creasolicitud")[0] );
-	$.ajax({
-		url : waooserver+"/solicitudes/crearSolicitud",
-		type : 'POST',
-		data : formData,
-		async : false,
-		cache : false,
-		contentType : false,
-		processData : false,
-		success : function(resp) {
-			var json = JSON.parse(resp);
-			if(json.msg=='ok') cargaPagina('data/success.html');
-			else alert(json.msg);
-		}
-	});
+	var titulo = $.trim($('.js-titulo').val());
+	var desc = $.trim($('.js-descripcion').val());
+	var arch = $.trim($('.js-upload-file').val());
+	if(titulo!='' && desc!='' && arch!=''){
+		var formData = new FormData( $("#creasolicitud")[0] );
+		$.ajax({
+			url : waooserver+"/solicitudes/crearSolicitud",
+			type : 'POST',
+			data : formData,
+			async : false,
+			cache : false,
+			contentType : false,
+			processData : false,
+			success : function(resp) {
+				var json = JSON.parse(resp);
+				if(json.msg=='ok') cargaPagina('data/success.html');
+				else alert(json.msg);
+			}
+		});
+	}
+	else {
+		alert("Por favor, proporciona un titulo, una descripcion y un archivo para tu solicitud, de esa forma podremos ayudarte mejor :)");
+	}
 }
 
 function cargarMateriaSelect(id){
@@ -285,7 +293,7 @@ function listarArchivosSolicitud(id,iddiv){
 									+"<td style='vertical-align:bottom !important;'>"
 										+"Archivo "+(i2+1)+" por "+v.usuario+" ("+v.tipoarchivo+") "
 										+"<img style='display:inline !important; cursor:pointer;' src='images/icons/blue/plus.png' onclick='window.open(\""+filesUrl+v.nombrearchivo+"\");'>"
-										//+"<img style='display:inline !important; cursor:pointer;' src='images/icons/blue/plus.png' onclick='verArchivoSolicitud("+v.id+");'>" //web y android
+										// +"<img style='display:inline !important; cursor:pointer;' src='images/icons/blue/plus.png' onclick='verArchivoSolicitud("+v.id+");'>" //web y android
 									+"</td>"
 								+"</tr>");
 						});
