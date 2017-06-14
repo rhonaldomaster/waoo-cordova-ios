@@ -33,15 +33,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-        "id": "cordova-plugin-inappbrowser.inappbrowser",
-        "pluginId": "cordova-plugin-inappbrowser",
-        "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
         "id": "cordova-plugin-splashscreen.SplashScreen",
         "pluginId": "cordova-plugin-splashscreen",
@@ -50,11 +41,20 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/pushbots-cordova-plugin/www/pushbots.js",
-        "id": "pushbots-cordova-plugin.PushbotsPlugin",
-        "pluginId": "pushbots-cordova-plugin",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "pluginId": "onesignal-cordova-plugin",
         "clobbers": [
-            "PushbotsPlugin"
+            "OneSignal"
+        ]
+    },
+    {
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
         ]
     }
 ];
@@ -65,10 +65,10 @@ module.exports.metadata =
     "cordova-plugin-console": "1.0.3",
     "cordova-plugin-device": "1.1.2",
     "cordova-plugin-dialogs": "1.2.1",
-    "cordova-plugin-inappbrowser": "1.3.0",
     "cordova-plugin-splashscreen": "3.2.2",
     "cordova-plugin-whitelist": "1.2.2",
-    "pushbots-cordova-plugin": "1.3.6"
-}
+    "onesignal-cordova-plugin": "2.1.2",
+    "cordova-plugin-inappbrowser": "1.7.1"
+};
 // BOTTOM OF METADATA
 });

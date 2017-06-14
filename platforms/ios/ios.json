@@ -21,15 +21,15 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PushbotsPlugin\"><param name=\"ios-package\" value=\"PushbotsPlugin\" /></feature>",
+                            "xml": "<feature name=\"OneSignalPush\"><param name=\"ios-package\" value=\"OneSignalPush\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -37,7 +37,33 @@
             },
             "*-Info.plist": {
                 "parents": {
-                    "NSLocationWhenInUseUsageDescription": []
+                    "NSLocationWhenInUseUsageDescription": [],
+                    "UIBackgroundModes": [
+                        {
+                            "xml": "<array><string>remote-notification</string></array>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "*-Debug.plist": {
+                "parents": {
+                    "aps-environment": [
+                        {
+                            "xml": "<string>development</string>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "*-Release.plist": {
+                "parents": {
+                    "aps-environment": [
+                        {
+                            "xml": "<string>production</string>",
+                            "count": 1
+                        }
+                    ]
                 }
             }
         }
@@ -55,16 +81,16 @@
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.waooapp.waoo"
         },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.waooapp.waoo"
-        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.waooapp.waoo"
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.waooapp.waoo"
         },
-        "pushbots-cordova-plugin": {
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.waooapp.waoo"
+        },
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.waooapp.waoo"
         }
     },
@@ -103,15 +129,6 @@
             ]
         },
         {
-            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-            "id": "cordova-plugin-inappbrowser.inappbrowser",
-            "pluginId": "cordova-plugin-inappbrowser",
-            "clobbers": [
-                "cordova.InAppBrowser.open",
-                "window.open"
-            ]
-        },
-        {
             "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
             "id": "cordova-plugin-splashscreen.SplashScreen",
             "pluginId": "cordova-plugin-splashscreen",
@@ -120,11 +137,20 @@
             ]
         },
         {
-            "file": "plugins/pushbots-cordova-plugin/www/pushbots.js",
-            "id": "pushbots-cordova-plugin.PushbotsPlugin",
-            "pluginId": "pushbots-cordova-plugin",
+            "id": "onesignal-cordova-plugin.OneSignal",
+            "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+            "pluginId": "onesignal-cordova-plugin",
             "clobbers": [
-                "PushbotsPlugin"
+                "OneSignal"
+            ]
+        },
+        {
+            "id": "cordova-plugin-inappbrowser.inappbrowser",
+            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+            "pluginId": "cordova-plugin-inappbrowser",
+            "clobbers": [
+                "cordova.InAppBrowser.open",
+                "window.open"
             ]
         }
     ],
@@ -133,9 +159,9 @@
         "cordova-plugin-console": "1.0.3",
         "cordova-plugin-device": "1.1.2",
         "cordova-plugin-dialogs": "1.2.1",
-        "cordova-plugin-inappbrowser": "1.3.0",
         "cordova-plugin-splashscreen": "3.2.2",
         "cordova-plugin-whitelist": "1.2.2",
-        "pushbots-cordova-plugin": "1.3.6"
+        "onesignal-cordova-plugin": "2.1.2",
+        "cordova-plugin-inappbrowser": "1.7.1"
     }
 }

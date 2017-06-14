@@ -16,16 +16,16 @@
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.waooapp.waoo"
         },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.waooapp.waoo"
-        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.waooapp.waoo"
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.waooapp.waoo"
         },
-        "pushbots-cordova-plugin": {
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.waooapp.waoo"
+        },
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.waooapp.waoo"
         }
     },
